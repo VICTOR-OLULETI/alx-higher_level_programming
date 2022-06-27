@@ -11,13 +11,12 @@ int check_cycle(listint_t *head)
 
 	if (head == NULL)
 		return (0);
-	current = head;
-
+	current = head->next;
 	while (current != NULL)
 	{
-		current = current->next;
 		if (current == head)
 			return (1);
+		current = current->next;
 	}
 	return (0);
 }
