@@ -2,21 +2,24 @@
 
 /**
  * check_cycle - checks if linked list is circular
- * @head: head of linked list
+ * @list:linked list to be checked.
  * Return: 0 if not circular or 1 if circular.
  */
-int check_cycle(listint_t *head)
+int check_cycle(listint_t *list)
 {
 	listint_t *current;
 
-	if (head == NULL)
+	if (list == NULL)
 		return (0);
-	current = head->next;
+
+	current = list->next;
+
 	while (current != NULL)
 	{
-		if (current == head)
+		if (current == list)
 			return (1);
 		current = current->next;
 	}
+
 	return (0);
 }
