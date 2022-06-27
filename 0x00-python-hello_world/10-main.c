@@ -11,7 +11,7 @@
 int main(void)
 {
 	listint_t *head;
-	listint_t *curret;
+	listint_t *current;
 	listint_t *temp;
 	int i;
 
@@ -27,9 +27,9 @@ int main(void)
 	print_listint(head);
 
 	if (check_cycle(head) == 0)
-		printf("LInked list has no cycle\n");
+		printf("Linked list has no cycle\n");
 	else if (check_cycle(head) == 1)
-		printf("LInked list has a cycle\n");
+		printf("Linked list has a cycle\n");
 	current = head;
 	for (i = 0; i < 4; i++)
 		current = current->next;
