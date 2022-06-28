@@ -8,6 +8,6 @@ for i in range(10):
         else:
             print("{}".format(i), end="")
             if i < 8:
-                print("{}".format(j), end=", ") 
+                print("{}".format(j), end=", ")
             else:
                 print("{}".format(j))
