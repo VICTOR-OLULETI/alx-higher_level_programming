@@ -11,18 +11,16 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *step;
 	listint_t *current;
-	listint_t *temp;
 
-	int n, k, i;
+	int n = 0, k, i;
 
 	if (*head == NULL)
 		return (1);
 
-	n = 0;
-	temp = *head;
-	while (temp != NULL)
+	current = *head;
+	while (current != NULL)
 	{
-		temp = temp->next;
+		current = current->next;
 		n++;
 	}
 	k = n / 2;
