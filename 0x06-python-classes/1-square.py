@@ -3,8 +3,8 @@
 
 
 class Square:
-    """Creating a field"""
+    """Creating a Square with size"""
 
-    def __init__(self, square_size):
+    def __init__(self, _Square_size):
         """Initializing the Square"""
-        self.__size = square_size
+        self.__size = _Square_size
