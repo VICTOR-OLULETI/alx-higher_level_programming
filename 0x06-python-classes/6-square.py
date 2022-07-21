@@ -11,21 +11,8 @@ class Square:
     """Class Square with size"""
     def __init__(self, size=0, position=(0, 0)):
         """Constructor for Class Square"""
-        if (type(size) is not int):
-            raise TypeError("size must be an integer")
-        elif (size < 0):
-            raise ValueError("size must be >= 0")
-        else:
-            self.size = size
-        if (type(position) is not tuple) \
-                or (position[0] and type(position[0]) is not int) \
-                or (type(position[1]) is not int) \
-                or (position[0] < 0) \
-                or (position[1] < 0) \
-                or (len(position) != 2):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        else:
-            self.position = position
+        self.size = size
+        self.position = position
 
     def area(self):
         """Method that returns the area of Square"""
@@ -45,7 +32,7 @@ class Square:
     @property
     def size(self):
         """Getter for size"""
-        return self.__size
+        return (self.__size)
 
     @size.setter
     def size(self, value):
