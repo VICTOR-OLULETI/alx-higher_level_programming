@@ -4,8 +4,6 @@
 
 class Square:
     """Class Square with size"""
-
-
     def __init__(self, size=0):
         """Class construct"""
         if (type(size) is not int):
@@ -27,7 +25,6 @@ class Square:
             for i in range(self.__size):
                 print("#" * self.__size)
 
-
     @property
     def size(self):
         """Getter of the private attribute size"""
@@ -41,4 +38,4 @@ class Square:
         elif (value < 0):
             raise (ValueError("size must be >= 0"))
         else:
-   <F11>         self.__size = value
+            self.__size = value
