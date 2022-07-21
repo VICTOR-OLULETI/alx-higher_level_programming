@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-""" Class Square with:
-- size, position (private properties)
-- methods which are area and print_square
-- getters & setters.
+"""
+Class Square with:
+size, position (private properties)
+methods which are area and print_square
+getters & setters.
 """
 
 
@@ -34,13 +35,13 @@ class Square:
                 print('#' * self.__size)
 
     @property
-    """getter for size"""
     def size(self):
+        """Getter for size"""
         return self.__size
 
     @size.setter
-    """ setter for size"""
     def size(self, value):
+        """Setter for size"""
         if (type(value) is not int):
             raise TypeError("size must be an integer")
         elif (value < 0):
