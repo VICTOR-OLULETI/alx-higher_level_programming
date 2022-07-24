@@ -1,0 +1,59 @@
+#doctest_0-add_integer.txt
+
+===========================
+How to use 0-add_integer.py
+===========================
+
+``add_integer(a, b=98) `` returns the addition of its arguments.
+It takes two argument:
+	a: int or float
+	b: int or float
+Returns in integer: sum of a and b. Equivalent to using the ``+`` operator.
+
+Importing the function:
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+
+Tests:
+
+
+    	>>> add_integer(1, 2)
+	3
+
+	>>> add_integer(100, -2)
+	98
+
+	>>> add_integer(2)
+	100
+
+	>>> add_integer(100.3, -2)
+	98
+
+	>>> add_integer(-2, 100.3)
+	98
+
+	>>> add_integer()
+	Traceback (most recent call last):
+		...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+	>>> add_integer(4, "School")
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
+
+	>>> add_integer(None)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+	>>> add_integer(1000e1000)
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer
+
+	>>> add_integer(float('nan'))
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
