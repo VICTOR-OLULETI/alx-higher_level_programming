@@ -1,0 +1,46 @@
+#doctest_4-print_square.py
+
+============================
+How to use 4-print_square.py
+============================
+
+This library contains the ``print_square(size)`` function prints a square with # character with the length size (int)
+
+File: 4-print_square.py
+
+Return: None
+
+Importing the function:
+	>>> print_square = __import__('4-print_square').print_square
+
+Tests:
+	>>> print_square(4)
+	####
+	####
+	####
+	####
+
+	>>> print_square(1)
+	#
+
+	>>> print_square(-1)
+	Traceback (most recent call last):
+		...
+	ValueError: size must be >= 0
+
+	>>> print_square('victor')
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+	>>> print_square(0)
+
+	>>> print_square(None)
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+	>>> print_square(False)
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
