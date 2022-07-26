@@ -1,0 +1,48 @@
+#doctest_5-text_indentation.py
+================================
+How to use 5-text_indentation.py
+================================
+
+The function ''text_indentation(text)'' takes in an argument text (string type)
+searches the text for the delimiters(?, : and .) and inserts 2 new lines into the text  and prints the result
+File: 5-text_indentation.py
+
+Return: None
+
+Importing the function:
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test to realize:
+	
+	>>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+	... Quonam modo? xUltrum igitur tibi litteram videor an totas paginas commoverse?""")
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	<BLANKLINE>
+	Quonam modo?
+	<BLANKLINE>
+	xUltrum igitur tibi litteram videor an totas paginas commoverse?
+	<BLANKLINE>
+
+	>>> text_indentation(":::")
+	:
+	<BLANKLINE>
+	:
+	<BLANKLINE>
+	:
+	<BLANKLINE>
+	
+	>>> text_indentation("")
+
+	>>> text_indentation(" a b c ")
+	a b c
+
+	>>> text_indentation(500)
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
+
+	>>> text_indentation()
+	Traceback (most recent call last):
+		...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
