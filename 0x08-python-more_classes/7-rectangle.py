@@ -39,7 +39,7 @@ class Rectangle:
         if (self.__width == 0) or (self.__height == 0):
             return ""
 
-        str_rec = [str(Rectangle.print_symbol) * self.__width
+        str_rec = [str(self.print_symbol) * self.__width
                    for i in range(self.__height)]
 
         return '\n'.join(str_rec)
