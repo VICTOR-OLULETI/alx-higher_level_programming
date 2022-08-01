@@ -1,0 +1,68 @@
+#doctest_7-base_geometry.py
+=============================
+How to use 7-base_geometry.py
+=============================
+
+This library shows how to use 7-base_geometry.py using the class defined
+within it and the exceptions to be expected
+
+Importing function:
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> bg = BaseGeometry()
+
+	>>> modulo_doc = __import__('7-base_geometry').__doc__
+	>>> print(len(modulo_doc) > 0)
+	True
+
+	>>> class_doc = __import__('7-base_geometry').BaseGeometry.__doc__
+	>>> print(len(class_doc) > 0)
+	True
+
+	>>> area_doc = __import__('7-base_geometry').BaseGeometry.area.__doc__
+	>>> print(len(area_doc) > 0)
+	True
+
+	>>> bg.integer_validator("int", 13)
+	>>>
+
+	>>> bg.integer_validator("wid", 89)
+	>>>
+
+	>>> bg.integer_validator("un", 0)
+	Traceback (most recent call last):
+	...
+	ValueError: un must be greater than 0
+
+	>>> bg.integer_validator("tres", [])
+	Traceback (most recent call last):
+	...
+	TypeError: tres must be an integer
+
+	>>> bg.integer_validator("james", {})
+	Traceback (most recent call last):
+	...
+	TypeError: james must be an integer
+
+	>>> bg.integer_validator("cinco", (1, 0))
+	Traceback (most recent call last):
+	...
+	TypeError: cinco must be an integer
+
+	>>> bg.integer_validator("sie", 5.2)
+	Traceback (most recent call last):
+	...
+	TypeError: sie must be an integer
+
+	>>> bg.integer_validator("trece", -5.4)
+	Traceback (most recent call last):
+	...
+	TypeError: trece must be an integer
+	
+	>>> bg.integer_validator("iji", float('inf'))
+	Traceback (most recent call last):
+	...
+	TypeError: iji must be an integer
+
+	>>> bg.integer_validator("temp", 0b010101)
+	>>>
+
