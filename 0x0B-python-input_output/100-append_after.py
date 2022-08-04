@@ -14,7 +14,7 @@ def append_after(filename="", search_string="", new_string=""):
         search_string: string
         new_string: string
     """
-    with open(filename, encoding="utf+8", mode="r+") as myFile:
+    with open(filename, encoding="utf-8", mode="r+") as myFile:
         readFile = myFile.readlines()
         newFile = ""
 
