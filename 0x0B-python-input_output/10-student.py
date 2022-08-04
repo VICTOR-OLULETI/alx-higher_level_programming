@@ -27,7 +27,7 @@ class Student:
             - attrs: list (None default)
         """
 
-        result = []
+        result = {}
         if attrs is None:
             return (self.__dict__)
 
