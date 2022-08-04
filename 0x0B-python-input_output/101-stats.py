@@ -42,3 +42,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print_stats()
         raise
+    print_stats()
