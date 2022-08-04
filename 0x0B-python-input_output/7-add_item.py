@@ -21,5 +21,6 @@ if os.path.exists(filename):
 if len(sys.argv) == 1:
     save_to_json_file(py_list, filename)
 else:
-    py_list += list(sys.argv[1:])
+    for i in range(1, len(sys.argv)):
+        py_list.append(sys.argv[i])
     save_to_json_file(py_list, filename)
