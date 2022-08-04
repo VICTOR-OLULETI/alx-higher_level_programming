@@ -13,7 +13,7 @@ if __name__ == "__main__":
     codes = {200: 0, 300: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 
     def check(line):
-        '''Checks the sys stdin'''
+        """Checks the sys stdin"""
         try:
             line = line[:-1]
             words = line.split(" ")
@@ -25,11 +25,11 @@ if __name__ == "__main__":
             pass
 
     def print_stats():
-        '''prints the statistics'''
+        """prints the statistics"""
         print("File size: {}".format(size[0]))
-        for k in sorted(codes.keys()):
-            if codes[k]:
-                print("{}: {}".format(k, codes[k]))
+        for m in sorted(codes.keys()):
+            if codes[m]:
+                print("{}: {}".format(m, codes[m]))
 
     i = 1
     try:
@@ -41,4 +41,3 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print_stats()
         raise
-    print_stats()
