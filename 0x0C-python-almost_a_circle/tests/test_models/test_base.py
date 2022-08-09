@@ -13,18 +13,6 @@ class TestBase(unittest.TestCase):
     """
     Tests for base class
     """
-    def test_syntax_base(self):
-        """
-        Test that check PEP8
-        (pycodestyle)
-        """
-        syt = pycodestyle.StyleGuide(quit=True)
-        check = syt.check_files(['models/base.py'])
-        self.assertEqual(
-                check.total_errors, 0,
-                "Found pycode style errors (and Warnings)."
-        )
-
     def test_base(self):
         b = Base()
         self.assertEqual(b.id, 1)
