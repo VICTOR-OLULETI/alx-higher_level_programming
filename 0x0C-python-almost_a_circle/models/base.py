@@ -93,14 +93,15 @@ class Base:
             - cls: class method
             - list_objs : list of Rectangle or Square instances
         """
+        options  = ['Rectangle', 'Square']
+        result = []
+        name = ""
 
-        samples = ['Rectangle', 'Square']
-        compare = type(list_objs[0]).__name__
-        for obj in list_objs:
-            if type(obj).__name__ != compare:
-                result = []
-            else:
-                result = [obj.to_dictionary() for obj in list_objs]
+        if (list_objs is not None and len(list_objs)):
+            name = type(list_objs[0]).__name__
+            if (name in options):
+                if all((type(obj).__name__ == name) for obj in list_objs):
+                    result = [obj.to_dictionary() for obj in list_objs]
         value = cls.to_json_string(result)
         filename = (cls).__name__ + ".json"
         with open(filename, mode="w", encoding="utf-8") as myFile:
@@ -134,12 +135,13 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """Saves a list of objs into a csv file"""
         samples = ['Rectangle', 'Square']
-        compare = type(list_objs[0]).__name__
-        for obj in list_objs:
-            if type(obj).__name__ != compare:
-                result = []
-            else:
-                result = [obj.to_dictionary() for obj in list_objs]
+        result = []
+        compare = ""
+        if (list_objs is not None and len(list_objs)):
+            compare = type(list_objs[0]).__name__
+            if compare in samples:
+                if (all(type(obj).__name == compare) for obj in list_objs):
+                    result = [obj.to_dictionary() for obj in list_objs]
 
         filename = (cls).__name__ + ".csv"
         # field names
@@ -149,11 +151,10 @@ class Base:
         with open(filename, mode="w", encoding="utf-8") as csvFile:
             if cls.__name__ == "Rectangle":
                 writer = csv.DictWriter(csvFile, fieldnames=rectangle_field)
+                writer.writerows(result)
             elif cls.__name__ == "Square":
                 writer = csv.DictWriter(csvFile, fieldnames=square_field)
-
-            # writing data rows
-            writer.writerows(result)
+                writer.writerows(result)
 
     @classmethod
     def load_from_file_csv(cls):
