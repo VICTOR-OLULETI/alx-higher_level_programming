@@ -75,8 +75,8 @@ class Rectangle(Base):
     # Magic Methods
     def __str__(self):
         """Informal representation of a Rectangle Instance"""
-        return("[{}] ({:d}) {:d}/{:d} - {:d}/{:d}"
-               .format(type(self).__name__, self.id, self.__x, self.__y,
+        return ("[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"
+               .format(self.id, self.__x, self.__y,
                        self.__width, self.__height))
 
     # Getters and Setters
