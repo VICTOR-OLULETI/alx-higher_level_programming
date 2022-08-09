@@ -86,6 +86,9 @@ class TestBase(unittest.TestCase):
         base_instance = Base("Vic")
         self.assertEqual(base_instance.id, "Vic")
 
+    def test_tuple_id(self):
+        self.assertEqual((1, 2), Base((1, 2)).id)
+
     def test_to_dictionaryy(self):
         """
         Tests for to_json_string method
