@@ -14,10 +14,12 @@ class TestBase(unittest.TestCase):
     Tests for base class
     """
     def test_base(self):
+        # demonstrates adding of the id when instance is created
         b = Base()
         self.assertEqual(b.id, 1)
 
     def test_id2_base(self):
+        # demonstrates adding of the id when instance is created
         b = Base()
         c = Base()
         self.assertEqual(b.id, 2)
@@ -52,6 +54,7 @@ class TestBase(unittest.TestCase):
     def test_id_is_none(self):
         """
         Test when id is None or empty
+        and also demonstrate adding of instance id
         """
         base_instance = Base()
         self.assertEqual(base_instance.id, 4)
@@ -61,13 +64,22 @@ class TestBase(unittest.TestCase):
     def test_unique_id(self):
         self.assertEqual(12, Base(12).id)
 
+    def test_string_id(self):
+        # testing strings
+        self.assertEqual("hello world", Base("hello world").id)
+
+    def test_float_id(self):
+        # testing float numbers
+        self.assertEqual(5.5, Base(5.5).id)
+
     def test_nb_instance_private(self):
         with self.assertRaises(AttributeError):
             print(Base(12).__nb_instances)
 
     def test_string_id(self):
         """
-        setting id to string
+
+        other example when setting id to string
         """
         base_instance = Base("Sam")
         self.assertEqual(base_instance.id, "Sam")
@@ -81,6 +93,16 @@ class TestBase(unittest.TestCase):
         r1 = Rectangle(1, 2, 3, 4, 5)
         r1_to_dict = r1.to_dictionary()
         self.assertEqual(type(r1_to_dict), dict)
+
+    def test_to_json_string_rectangle(self):
+        """
+        convert the rectangle instance to dictionary and
+        convert it to json and test the type match
+        """
+        r1 = Rectangle(1, 2, 3, 4, 5)
+        r1_to_dict = r1.to_dictionary()
+        r1_dict_to_json = Base.to_json_string([r1_to_dict])
+        self.assertEqual(str, type(r1_dict_to_json))
 
     def test_empty_to_json_string(self):
         """
