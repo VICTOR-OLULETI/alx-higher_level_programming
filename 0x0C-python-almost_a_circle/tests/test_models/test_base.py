@@ -70,6 +70,9 @@ class TestBase(unittest.TestCase):
         base_instance = Base(None)
         self.assertEqual(base_instance.id, 5)
 
+    def test_unique_id(self):
+        self.assertEqual(12, Base(12).id)
+
     def test_nb_instance_private(self):
         with self.assertRaises(AttributeError):
             print(Base(12).__nb_instances)
