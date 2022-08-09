@@ -12,17 +12,10 @@ import os
 
 
 class TestcodeFormat(unittest.TestCase):
-    def test_pycodestyle(self):
-        """Test for PEP-8 format"""
-        sty = pycodestyle.StyleGuide(quit=True)
-        check = sty.check_files(['models/rectangle.py'])
-        self.assertEqual(check.total_errors, 0,
-                "Found pycode style errors (and Warnings)."
-        )
-
+    """Tests for Base"""
     def set_default(self):
         """Sets number of objects to 0"""
-        Base._Base_nb_objects = 0
+        Base.__nb_objects = 0
 
     def test_id(self):
         """Test for positive case of Base Class id"""
@@ -55,11 +48,12 @@ class TestcodeFormat(unittest.TestCase):
         with self.assertRaises(TypeError):
             r4 = Rectangle(1, 3, 5, 6, 8, 33)
 
+
 class Test_RectangleAttributes(unittest.TestCase):
     """A class to test attributs of Rectangle Class"""
     def set_default(self):
         """sets the number of objects to 0"""
-        Base._Base__nb_objects = 0
+        Base.__nb_objects = 0
 
     def test_set_attributes(self):
         """Test if the attributes are correctly matched"""
@@ -95,11 +89,12 @@ class Test_RectangleAttributes(unittest.TestCase):
         with self.assertRaises(AttributeError):
             r6.__x
 
+
 class Test_Rectangle_Area(unittest.TestCase):
     """Tests for the area of the Rectangle"""
     def set_default(self):
         """sets the number of objects to 0"""
-        Base._Base_nb_objects = 0
+        Base.__nb_objects = 0
 
     def test_area(self):
         """Test area"""
@@ -117,12 +112,13 @@ class Test_Rectangle_Area(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             r2.height = 0
 
+
 class test_disp(unittest.TestCase):
     """Test for display methods"""
     def set_default(self):
         """sets number of objects to 0"""
-        Base._Base_nb_objects = 0
-    
+        Base.__nb_objects = 0
+
     def test_valid_attrs_display(self):
         """checks valid attribute and display output"""
         self.set_default()
@@ -145,11 +141,12 @@ class test_disp(unittest.TestCase):
             r1 = Rectangle(1, 2, 1, 1)
             r1.display(2)
 
+
 class Tests_Update(unittest.TestCase):
     """Test class for update method"""
     def set_default(self):
         """sets the number of objects to 0"""
-        Base._Base__nb_objects = 0
+        Base.__nb_objects = 0
 
     def test_args_0(self):
         """passes in no argument and tests"""
@@ -218,7 +215,7 @@ class Tests_Update(unittest.TestCase):
         r1.update(id=10, width=20)
         self.assertEqual(r1.id, 10)
         self.assertEqual(r1.width, 20)
-    
+
     def test_height_kwargs(self):
         """passes in height to function"""
         self.set_default()
@@ -239,7 +236,7 @@ class Tests_Update(unittest.TestCase):
         r1 = Rectangle(1, 2, 3, 4)
         r1.update(y=30)
         self.assertEqual(r1.y, 30)
-    
+
     def test_invalid_kwargs(self):
         """passes in valid and invalid kwargs"""
         self.set_default()
@@ -271,7 +268,7 @@ class Tests_Update(unittest.TestCase):
         # pass float to height
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             r1.update(height=3.3)
-        
+
         # pass list to update
         with self.assertRaisesRegex(TypeError, 'width must be an integer'):
             list_value = [1, 2, 3]
@@ -281,7 +278,7 @@ class Tests_Update(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, 'width must be an integer'):
             tuple_value = (1, 2, 3)
             r1.update(2, tuple_value)
-        
+
         # pass set to update
         with self.assertRaisesRegex(TypeError, 'width must be an integer'):
             set_value = {1, 2, 3}
@@ -292,11 +289,12 @@ class Tests_Update(unittest.TestCase):
             dict_value = {'width': 2, 'x': 2, 'y': 3}
             r1.update(1, dict_value)
 
+
 class Test_Dictionary_Representation(unittest.TestCase):
     """Test case class for dictionary representations"""
     def set_default(self):
         """sets the number of objects to 0"""
-        Base._Base__nb_objects = 0
+        Base.__nb_objects = 0
 
     def test_dict_with_arg(self):
         """Test to dictionary function"""
@@ -313,6 +311,7 @@ class Test_Dictionary_Representation(unittest.TestCase):
         self.assertEqual(5, r1.id)
         dict_value = {'id': 5, 'width': 1, 'height': 2, 'x': 3, 'y': 4}
         self.assertDictEqual(r1.to_dictionary(), dict_value)
+
 
 class TestRectangle(unittest.TestCase):
     """Test the some functionality of the rectangle class"""

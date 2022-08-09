@@ -15,14 +15,6 @@ from contextlib import redirect_stdout
 Square = square.Square
 
 
-class TestCodeFormat(unittest.TestCase):
-    def test_pycodestyle(self):
-        """Test for PEP-8 format"""
-        sty = pycodestyle.StyleGuide(quiet=True)
-        result = sty.check_files(['models/square.py'])
-        self.assertEqual(result.total_errors, 0,
-                "Found code style errorrors (and warnings).")
-
 class testcases(unittest.TestCase):
     """Testing the square class"""
 
