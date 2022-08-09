@@ -25,6 +25,20 @@ class TestBase(unittest.TestCase):
                 "Found pycode style errors (and Warnings)."
         )
 
+    def test_base(self):
+        b = Base()
+        self.assertEqual(b.id, 1)
+
+    def test_id2_base(self):
+        b = Base()
+        c = Base()
+        self.assertEqual(b.id, 2)
+        self.assertEqual(c.id, 3)
+
+    def test_id_exits(self):
+        b = Base(89)
+        self.assertEqual(b.id, 89)
+
     def test_id_when_positive(self):
         """
         Test for Base class id
@@ -52,9 +66,13 @@ class TestBase(unittest.TestCase):
         Test when id is None or empty
         """
         base_instance = Base()
-        self.assertEqual(base_instance.id, 1)
+        self.assertEqual(base_instance.id, 4)
         base_instance = Base(None)
-        self.assertEqual(base_instance.id, 2)
+        self.assertEqual(base_instance.id, 5)
+
+    def test_nb_instance_private(self):
+        with self.assertRaises(AttributeError):
+            print(Base(12).__nb_instances)
 
     def test_string_id(self):
         """
@@ -65,13 +83,13 @@ class TestBase(unittest.TestCase):
         base_instance = Base("Vic")
         self.assertEqual(base_instance.id, "Vic")
 
-    def test_to_json_string(self):
+    def test_to_dictionaryy(self):
         """
         Tests for to_json_string method
         """
         r1 = Rectangle(1, 2, 3, 4, 5)
-        r1_to_json = Base.to_json_string([r1])
-        self.assertEqual(type(r1_to_json), str)
+        r1_to_dict = r1.to_dictionary()
+        self.assertEqual(type(r1_to_dict), dict)
 
     def test_empty_to_json_string(self):
         """
@@ -81,10 +99,13 @@ class TestBase(unittest.TestCase):
         empty_data_json = Base.to_json_string(empty_data)
         self.assertEqual(empty_data_json, "[]")
 
+    def test_none_to_json_string(self):
+
         empty_data = None
         empty_data_json = Base.to_json_string(empty_data)
+        self.assertEqual(empty_data_json, "[]")
 
-    def test_to_json_string(self):
+    def test_to_json2_string(self):
         """
         Test to_json_string function
         """
@@ -97,6 +118,12 @@ class TestBase(unittest.TestCase):
                 json_data,
                 '{["id": 31, "x": 14, "y": 10, "width": 5, "height": 5]}'
                 )
+
+    def test_base_to_json_string(self):
+
+        data = {'id': 12 }
+        data_to_string = Base.to_json_string([data])
+        self.assertTrue(isinstance(data_to_string, str))
 
     def test_create(self):
         """
