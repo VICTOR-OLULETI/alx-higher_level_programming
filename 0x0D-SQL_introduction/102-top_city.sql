@@ -1,0 +1,6 @@
+-- script that displays the top 3 cities temperature
+SELECT city, AVG(value) as avg_temp
+FROM temperatures
+WHERE (month=7 OR month=8)
+GROUP BY CITY LIMIT 3
+ORDER BY avg_temp DESC;
