@@ -4,7 +4,7 @@ let result = '';
 if (!isNaN(size)) {
   for (let i = 0; i < size; i++) {
     for (let j = 0; j < size; j++) {
-      result += 'x';
+      result += 'X';
     }
     console.log(result);
     result = '';
