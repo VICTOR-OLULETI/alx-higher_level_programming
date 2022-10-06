@@ -6,13 +6,13 @@ let first;
 if (args <= 3) {
   second = 0;
 } else {
-  first = arr[2];
-  second = arr[2];
+  first = -100000000;
+  second = -100000000;
   for (let i = 2; i < args; i++) {
-    if (arr[i] >= first) {
+    if (arr[i] > first) {
       second = first;
       first = arr[i];
-    } else if (arr[i] > second) {
+    } else if (arr[i] > second && arr[i] !== first) {
       second = arr[i];
     }
   }
