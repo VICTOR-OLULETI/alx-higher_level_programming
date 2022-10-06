@@ -1,20 +1,17 @@
 #!/usr/bin/node
-const args = process.argv.length;
 const arr = process.argv;
-let second;
-let first;
-if (args <= 3) {
-  second = 0;
-} else {
-  first = -100000000;
-  second = -100000000;
-  for (let i = 2; i < args; i++) {
-    if (arr[i] > first) {
-      second = first;
-      first = arr[i];
-    } else if (arr[i] > second && arr[i] !== first) {
-      second = arr[i];
-    }
+function findSecondLargest (ar) {
+  const args = process.argv.length;
+  const array1 = [];
+  if (args <= 3) {
+    return (0);
   }
+  for (let j = 2; j < args; j++) {
+    array1.push(parseInt(ar[j], 10));
+  }
+  const max = Math.max.apply(null, array1);
+  array1[array1.indexOf(max)] = -Infinity;
+  const max2 = Math.max.apply(null, array1);
+  return (max2);
 }
-console.log(`${second}`);
+console.log(`${findSecondLargest(arr)}`);
