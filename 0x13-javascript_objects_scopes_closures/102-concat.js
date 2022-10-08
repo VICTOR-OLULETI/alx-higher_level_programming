@@ -11,16 +11,7 @@ function readingFile (error, data) {
     console.log(error);
   }
   fs.writeFile(`${file3}`, data, { encoding: 'utf8', flag: 'a+' }, writeFile);
-  // fs.writeFile(`${file3}`, '\n', {encoding: "utf8", flag:"a+"}, writeFile);
 }
-/*
-function readingFile2(error, data) {
-  if (error) {
-    console.log(error);
-  }
-  fs.writeFile(`${file3}`, data, {encoding: "utf8", flag:"a+"}, writeFile);
-};
-*/
 function writeFile (err) {
   if (err) {
     console.log(err);
