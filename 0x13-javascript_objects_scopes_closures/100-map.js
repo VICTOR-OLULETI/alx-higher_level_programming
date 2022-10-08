@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const list1 = require('./100-data.js');
-const list2 = list1.map(x => x * list1.indexOf(x));
-console.log(list1);
+const list = require('./100-data.js').list;
+const list2 = list.map(x => x * list.indexOf(x));
+console.log(list);
 console.log(list2);
