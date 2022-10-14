@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This module connect to the database
+and return the states contained in it
+"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
