@@ -24,8 +24,8 @@ def main():
             db=database_name, user=mysql_username
             )
     r = db.cursor()
-    result = """SELECT states.id, name FROM states
-                WHERE name = '{}' ORDER BY states.id""".format(state_searched)
+    result = """SELECT states.id, name FROM states WHERE BINARY
+                name ='{}' ORDER BY states.id""".format(state_searched)
     r.execute(result)
 
     for i in r.fetchall():
