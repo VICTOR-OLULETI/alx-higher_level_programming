@@ -1,0 +1,22 @@
+import sys
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+import MySQLdb
+from sqlalchemy import select
+
+mysql_username = sys.argv[1]
+mysql_password = sys.argv[2]
+database_name = sys.argv[3]
+
+engine = create_engine(
+        "mysql+mysqldb://"+mysql_username + ":"
+        + mysql_password+"@localhost:3306/" + database_name
+        )
+conn = engine.connect()
+trans = conn.begin()
+r = conn.execute("select states.id, name from states order by states.id")
+# r = conn.execute(s).fetchall()
+for i in r:
+    print(i)
+conn.close()
