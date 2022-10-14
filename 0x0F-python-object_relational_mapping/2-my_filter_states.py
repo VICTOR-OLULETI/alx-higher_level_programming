@@ -24,8 +24,9 @@ def main():
             db=database_name, user=mysql_username
             )
     r = db.cursor()
-    r.execute("""SELECT states.id, name FROM states
-            WHERE name = (%s) ORDER BY states.id""", [state_searched])
+    result = """SELECT states.id, name FROM states
+                WHERE name = '{}' ORDER BY states.id""".format(state_searched)
+    r.execute(result)
 
     for i in r.fetchall():
         print(i)
