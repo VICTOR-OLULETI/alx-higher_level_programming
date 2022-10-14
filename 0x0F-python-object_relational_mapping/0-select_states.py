@@ -1,14 +1,16 @@
 #!/usr/bin/python3
 """
-This module connect to the database
-and return the states contained in it
+    This module connect to the database
+    and return the states contained in it
 """
+
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import MySQLdb
 from sqlalchemy import select
+
 
 mysql_username = sys.argv[1]
 mysql_password = sys.argv[2]
