@@ -25,7 +25,7 @@ def main():
             )
     r = db.cursor()
     r.execute("""SELECT states.id, name FROM states
-            WHERE name =%s ORDER BY states.id""", (state_searched,))
+            WHERE name = (%s) ORDER BY states.id""", [state_searched])
 
     for i in r.fetchall():
         print(i)
