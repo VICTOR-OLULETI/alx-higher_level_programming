@@ -23,7 +23,7 @@ def main():
             )
     r = db.cursor()
     r.execute("""SELECT states.id, states.name FROM states
-            WHERE states.name LIKE 'N%'""")
+            WHERE BINARY states.name LIKE 'N%'""")
     for i in r.fetchall():
         print(i)
 
