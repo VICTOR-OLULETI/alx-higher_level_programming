@@ -9,5 +9,4 @@ import urllib.request
 url_input = sys.argv[1]
 req = urllib.request.Request(url_input)
 with urllib.request.urlopen(req) as response:
-    the_page = response.__dict__.get('headers')
-    print(the_page.get('X-Request-Id'))
+    print(response.headers['X-Request-Id'])
