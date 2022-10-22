@@ -15,7 +15,7 @@ if __name__ == "__main__":
     for i in (r_dict):
         if j < 10:
             j = j + 1
-            print("{}: {} {}".format(i.get('sha'),
+            print("{}: {}".format(i.get('sha'),
                   i.get('commit').get('author').get('name')))
         else:
             break
