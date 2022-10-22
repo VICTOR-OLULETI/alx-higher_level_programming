@@ -6,6 +6,7 @@ displays the value of the variable X-Request-Id
 import requests
 import sys
 
-url_input = sys.argv[1]
-r = requests.get(url_input, auth=('user', 'pass'))
-print(r.headers['X-Request-Id'])
+if __name__ == "__main__":
+    url_input = sys.argv[1]
+    r = requests.get(url_input, auth=('user', 'pass'))
+    print(r.headers['X-Request-Id'])
