@@ -13,11 +13,11 @@ if __name__ == "__main__":
     data['q'] = q
     r = requests.post('http://0.0.0.0:5000/search_user', data)
     res_type = r.headers['Content-Type']
-    if (res_type == 'application/json'):
+    if (r.status_code >= 300):
+        print("Not a valid JSON")
+    elif (res_type == 'application/json'):
         r_dict = r.json()
         if (len(r_dict) == 0):
             print("No result")
-        elif (r_dict.get('id') is not None):
+        else:
             print("[{}] {}".format(r_dict.get('id'), r_dict.get('name')))
-    else:
-        print("Not a vaild JSON")
