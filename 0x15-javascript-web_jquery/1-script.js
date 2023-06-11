@@ -4,4 +4,3 @@
 
 const $update = $('header');
 $update.css('color', '#FF0000');
-
